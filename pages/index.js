@@ -6,18 +6,19 @@ import { StyledTimeline } from "../src/components/Timeline";
 
 function HomePage() {
     const estilos = { 
-        //backgroundColor: 'red' 
+        //backgroundColor: 'red',
+        display: "flex",
+        flexDirection: "column",
+        flex: 1 
     };
-    const mensagens = "Bem vindo ao AluraTube!";
+    
     return (
         <>
             <CSSReset />
-            <div style={estilos}>{mensagens}
+            <div style={estilos}>
                 <Menu />
                 <Header />
-                <Timeline playlists={config.playlists}>
-
-                </Timeline>
+                <Timeline playlists={config.playlists}></Timeline>
             </div>        
         </>
     );
@@ -61,18 +62,25 @@ function Timeline(props) {
     return (
         <StyledTimeline>
             {playlistNames.map((name) => {
-                const videos = props.playlists[name];                
-                return videos.map((video) => {
-                    return (
-                        <a href={video.url}>
-                            <img src={video.thumb} />
-                            <span>
-                                {video.title}
-                            </span>
-                        </a>
-                    )
-                }); 
+                const videos = props.playlists[name];
+                return (
+                    <section>
+                        <h2>{name}</h2>
+                        <div>
+                            {videos.map((video) => {
+                                return (
+                                    <a href={video.url}>
+                                        <img src={video.thumb} />
+                                        <span>
+                                            {video.title}
+                                        </span>
+                                    </a>
+                                )
+                            })}
+                        </div>
+                    </section>
+                )            
             })}
         </StyledTimeline>
-    );    
+    );
 }
