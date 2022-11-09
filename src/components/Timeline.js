@@ -10,7 +10,7 @@ export const StyledTimeline = styled.div`
     font-style: normal;
     margin-bottom: 16px;
     text-transform: capitalize;
-    background-color: purple;
+    /* background-color: purple; */
     color: white;
   }
   img {
