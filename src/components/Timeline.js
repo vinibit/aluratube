@@ -7,8 +7,11 @@ export const StyledTimeline = styled.div`
   overflow: hidden;
   h2 {
     font-size: 16px;
+    font-style: normal;
     margin-bottom: 16px;
     text-transform: capitalize;
+    background-color: purple;
+    color: white;
   }
   img {
     aspect-ratio: 16/9;
