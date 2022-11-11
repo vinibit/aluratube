@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import config from "../config.json";
+import myplaylists from "../playlists.json";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 
 function HomePage() {
-    const estilos = { 
-        //backgroundColor: 'red',
+    const estilos = {         
         display: "flex",
         flexDirection: "column",
         flex: 1 
@@ -19,7 +19,7 @@ function HomePage() {
             <div style={estilos}>
                 <Menu filter={filter} setFilter={setFilter}/>
                 <Header />
-                <Timeline searchValue={filter.toLowerCase()} playlists={config.playlists}>
+                <Timeline searchValue={filter.toLowerCase()} playlists={myplaylists}>
                 </Timeline>
             </div>        
         </>
@@ -37,21 +37,21 @@ const StyledHeader = styled.div`
         height: 80px;
         border-radius: 50%;
     }
-    .user-info {
-        /* margin-top: 50px; */
+    .user-info {        
         display: flex;
         align-items: center;
         width: 100%;
         padding: 16px 32px;
-        gap: 16px;
-        /* background-color: lightgrey; */
+        gap: 16px;    
     }
 `;
 const StyledBanner = styled.div`
-    /* background-color: purple; */
+    height: 230px;    
+    margin-top: 56px;    
     background-image: url(${({ bg }) => bg });
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;    
-    height: 230px;
 `;
 function Header() {
     return (
@@ -69,32 +69,31 @@ function Header() {
     )
 }
 
-function Timeline({searchValue, ...props}) {
-    const playlistNames = Object.keys(props.playlists);
+function Timeline({ searchValue, playlists }) {
+    const playlistNames = Object.keys(playlists);
     return (
         <StyledTimeline>
             {playlistNames.map((name) => {
-                const videos = props.playlists[name];
+                const videos = playlists[name];
+                const filteredVideos = videos.filter((video) => video.title.toLowerCase().includes(searchValue));
+                const showList = filteredVideos.length > 0;
                 return (
-                    <section>
-                        <h2>{name}</h2>
-                        <div>
-                            {videos
-                                .filter((video) => video.title.toLowerCase().includes(searchValue))                             
-                                .map((video) => {
-                                    return (
-                                        <a key={video.id} href={video.url}>
-                                            <img src={video.thumb} />
-                                            <span>
-                                                {video.title}
-                                            </span>
-                                        </a>
-                                    )
-                            })}
-                        </div>
-                    </section>
-                )            
-            })}
+                     showList &&
+                        (<section>
+                                <h2>{name}</h2>
+                                <div>
+                                    {filteredVideos.map((video) => {
+                                        return (
+                                            <a key={video.id} href={video.url}>
+                                                <img src={video.thumb} />
+                                                <span>
+                                                    {video.title}
+                                                </span>
+                                            </a>
+                                        )
+                                    })}
+                                </div>
+                            </section>)                                           
+            )})}
         </StyledTimeline>
-    );
-}
+    )};

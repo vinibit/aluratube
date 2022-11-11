@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { CSSReset } from '../src/components/CSSReset';
 import ColorModeProvider, { ColorModeContext } from '../src/components/Menu/components/ColorMode';
+import RegisterVideo from '../src/components/RegisterVideo';
 
 const theme = {
     light: {
@@ -28,13 +29,14 @@ function ProviderWrapper(props) {
     )
 };
 
-function AluraTubeApp({ Component, pageProps}) {
+function Root({ Component, pageProps}) {
     const context = React.useContext(ColorModeContext);    
 
     return (        
             <ThemeProvider theme={theme[context.mode]}>
                 <CSSReset />
-                <Component { ...pageProps } />        
+                <Component { ...pageProps } /> 
+                <RegisterVideo />
             </ThemeProvider>
     )
 };
@@ -42,7 +44,7 @@ function AluraTubeApp({ Component, pageProps}) {
 export default function _App(props) {
     return (
         <ProviderWrapper>
-            <AluraTubeApp { ...props } />
+            <Root { ...props } />
         </ProviderWrapper>
     )
 }; 

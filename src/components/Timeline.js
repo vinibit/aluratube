@@ -9,9 +9,8 @@ export const StyledTimeline = styled.div`
     font-size: 16px;
     font-style: normal;
     margin-bottom: 16px;
-    text-transform: capitalize;
-    /* background-color: purple; */
-    color: white;
+    text-transform: capitalize;    
+    color: ${({ theme }) => theme.textColorBase || "#222222"};
   }
   img {
     aspect-ratio: 16/9;

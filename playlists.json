@@ -1,0 +1,104 @@
+{
+    "game arts": [
+        {
+          "id": 11,
+          "title": "Chrono Trigger é um Jogo Atemporal",
+          "url": "https://www.youtube.com/watch?v=_O4ibcDBAS8",
+          "thumb": "https://img.youtube.com/vi/_O4ibcDBAS8/hqdefault.jpg"
+        },
+        {
+          "id": 12,
+          "title": "Recreating Kratos - An Hour With God Of War director Cory Barlog",
+          "url": "https://www.youtube.com/watch?v=5qPMpFXGvA4",
+          "thumb": "https://img.youtube.com/vi/5qPMpFXGvA4/hqdefault.jpg"
+        },
+        {
+          "id": 33,
+          "title": "Take On Me - The Last of Us 2",
+          "url": "https://www.youtube.com/watch?v=JyN4Rc-ny4M",
+          "thumb": "https://img.youtube.com/vi/JyN4Rc-ny4M/hqdefault.jpg"
+        },
+        {
+          "id": 14,
+          "title": "OGADO NO BRASIL: QUANDO APRENDEMOS A JOGAR VIDEO GAME",
+          "url": "https://www.youtube.com/watch?v=ezgiq6vjCb0",
+          "thumb": "https://img.youtube.com/vi/ezgiq6vjCb0/hqdefault.jpg"
+        },
+        {
+          "id": 15,
+          "title": "Talking with Nobuo Uematsu & Hironobu Sakaguchi (Final Fantasy's Creator)",
+          "url": "https://www.youtube.com/watch?v=1W4Q099XpJ8",
+          "thumb": "https://img.youtube.com/vi/1W4Q099XpJ8/hqdefault.jpg"
+        }       
+      ],
+    "gameplays": [
+      {
+        "id": 21,
+        "title": "Ori and the Blind Forest Definitive Edition",
+        "url": "https://youtube.com/watch?v=7Cp2kkxMvdc",
+        "thumb": "https://img.youtube.com/vi/7Cp2kkxMvdc/hqdefault.jpg"
+      },
+      {
+        "id": 22,
+        "title": "Hob - 20 minutes",
+        "url": "https://www.youtube.com/watch?v=vJe-9xgGxhA",
+        "thumb": "https://img.youtube.com/vi/vJe-9xgGxhA/hqdefault.jpg"
+      },
+      {
+        "id": 23,
+        "title": "God of War: Kratos vs. Valquíria",
+        "url": "https://www.youtube.com/watch?v=oUhNizwvSFw",
+        "thumb": "https://img.youtube.com/vi/oUhNizwvSFw/hqdefault.jpg"
+      },
+      {
+        "id": 24,
+        "title": "Terra Média: Sombras de Mordor - Gameplay Furtivo",
+        "url": "https://www.youtube.com/watch?v=w6sjL2Bkwsg",
+        "thumb": "https://img.youtube.com/vi/w6sjL2Bkwsg/hqdefault.jpg"
+      }      
+    ],
+    "dev": [
+      {
+        "id": 31,
+        "title": "Node JS: Construindo CRUDs com file system focando em serialização e JSON",
+        "url": "https://www.youtube.com/watch?v=dvd3pNYh7So",
+        "thumb": "https://img.youtube.com/vi/dvd3pNYh7So/hqdefault.jpg"
+      },
+      {
+        "id": 32,
+        "title": "Node JS: Construindo CRUDs com file system focando em serialização e JSON",
+        "url": "https://www.youtube.com/watch?v=8q36rNS5yVo",
+        "thumb": "https://img.youtube.com/vi/8q36rNS5yVo/hqdefault.jpg"
+      },          
+      {
+        "id": 32,
+        "title": "O que é o Java? #HipstersPontoTube",
+        "url": "https://www.youtube.com/watch?v=90NcVNsKGik",
+        "thumb": "https://img.youtube.com/vi/90NcVNsKGik/hqdefault.jpg"
+      },
+      {
+        "id": 34,
+        "title": "O que é Machine Learning? #HipstersPontoTube",
+        "url": "https://www.youtube.com/watch?v=Iuz_jc96bQk",
+        "thumb": "https://img.youtube.com/vi/Iuz_jc96bQk/hqdefault.jpg"
+      },
+      {
+        "id": 35,
+        "title": "A MELHOR linguagem de programação com Fabio Akita | #HipstersPontoTube",
+        "url": "https://www.youtube.com/watch?v=imB0QVoNrGc",
+        "thumb": "https://img.youtube.com/vi/imB0QVoNrGc/hqdefault.jpg"
+      },
+      {
+        "id": 36,
+        "title": "Top 5 libs que todo aplicativo Android deve ter com Alex Felipe | #HipstersPontoTube",
+        "url": "https://www.youtube.com/watch?v=ldRbnpy-qQs",
+        "thumb": "https://img.youtube.com/vi/ldRbnpy-qQs/hqdefault.jpg"
+      },
+      {
+        "id": 37,
+        "title": "O que é o C#? #HipstersPontoTube",
+        "url": "https://www.youtube.com/watch?v=0JWMVc1CqpA",
+        "thumb": "https://img.youtube.com/vi/0JWMVc1CqpA/hqdefault.jpg"
+      }
+    ]
+}
