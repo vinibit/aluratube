@@ -1,32 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import config from "../config.json";
-import myplaylists from "../playlists.json";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
-
-function HomePage() {
-    const estilos = {         
-        display: "flex",
-        flexDirection: "column",
-        flex: 1 
-    };
-    const [filter, setFilter] = React.useState("");
-    
-    return (
-        <>
-            
-            <div style={estilos}>
-                <Menu filter={filter} setFilter={setFilter}/>
-                <Header />
-                <Timeline searchValue={filter.toLowerCase()} playlists={myplaylists}>
-                </Timeline>
-            </div>        
-        </>
-    );
-}
-
-export default HomePage
+import { videoService } from "../src/services/videoService";
 
 const StyledHeader = styled.div`
     background-color: ${({ theme }) => theme.backgrundLevel1};
@@ -96,4 +73,46 @@ function Timeline({ searchValue, playlists }) {
                             </section>)                                           
             )})}
         </StyledTimeline>
-    )};
+    )
+}
+
+function HomePage() {
+    const estilos = {         
+        display: "flex",
+        flexDirection: "column",
+        flex: 1 
+    };
+    const listTypes = [];
+    listTypes[1] = "jogos";    
+
+    const [filter, setFilter] = React.useState("");
+    const [playlists, setPlaylists] = React.useState({});
+    const service = videoService();
+    
+    React.useEffect( () => {        
+        service
+            .getAllVideos()
+            .then((res) => {
+
+                const updatedPlaylists = {...playlists};
+                res.data.forEach(video => {
+                    const type = listTypes[video.playlist_id];
+                    if (!updatedPlaylists[type]) updatedPlaylists[type] = [];                    
+                    updatedPlaylists[type]?.push(video);
+                });                
+                setPlaylists(updatedPlaylists);
+            });
+    }, []);
+
+    return (
+        <>            
+            <div style={estilos}>
+                <Menu filter={filter} setFilter={setFilter}/>
+                <Header />
+                <Timeline searchValue={filter.toLowerCase()} playlists={playlists} />                
+            </div>        
+        </>
+    );
+}
+
+export default HomePage;
