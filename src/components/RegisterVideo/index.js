@@ -2,12 +2,11 @@ import React from "react";
 import { StyledRegisterVideo } from "./styles";
 import { createClient } from "@supabase/supabase-js";
 
-function generateThumb(value) {  
-    
-    console.log(value);
-    const videoIdExp = /v=([\w-]*)/;
-    const id = value.match(videoIdExp)[1];
-    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+function generateThumb(value) {          
+    const matchedArr = value.match(/v=([\w-]*)/);
+    if (!matchedArr) return '';
+    const id = matchedArr[1];
+    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;    
 }
 
 function useForm ({ initalValues }) {
@@ -38,7 +37,12 @@ export default function RegisterVideo() {
     const form = useForm({
         initalValues: {titulo: '', url: '', thumb: ''}
     });
-    const [visible, setVisible] = React.useState(false);    
+    const [visible, setVisible] = React.useState(false);
+    
+    const listTypes = [];
+    listTypes[1] = "Jogos"; 
+    listTypes[2] = "Música"; 
+    listTypes[3] = "Tecnologia"; 
 
     return (
         <StyledRegisterVideo>
@@ -47,14 +51,13 @@ export default function RegisterVideo() {
             </button>
             {visible && 
                 (<form onSubmit={(e) => {
-                    e.preventDefault();
-                    console.log(form.values);
+                    e.preventDefault();                    
 
                     supabase.from("video").insert({
                         title: form.values.titulo,
                         url: form.values.url,
                         thumb: generateThumb(form.values.url),
-                        playlist_id: 1
+                        playlist_id: form.values.playlist_id
                     })
                     .then((res) => {
                         console.log(res)
@@ -80,11 +83,18 @@ export default function RegisterVideo() {
                         <input name="url"
                             placeholder="Exemplo: https://youtu.be/5FZzjYACrQc" 
                             value={form.values.url} 
-                            onChange={form.handleChange} />
-                        <input name="thumb" 
-                            readOnly={true} 
-                            value={form.values.thumb} />
+                            onChange={form.handleChange} />                        
                         <img src={form.values.thumb} />
+                        <select name="playlist_id"                            
+                            value={form.values.playlist_id}
+                            onChange={form.handleChange} >
+                                <option value="" selected disabled>Escolha uma lista</option>
+                                {
+                                    listTypes.map((type, id) => {
+                                        return ( <option value={id}>{type}</option> )
+                                    })
+                                }                               
+                        </select>                        
                         <button type="submit">
                             Cadastrar
                         </button>

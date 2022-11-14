@@ -83,7 +83,10 @@ function HomePage() {
         flex: 1 
     };
     const listTypes = [];
-    listTypes[1] = "jogos";    
+    listTypes[1] = "Jogos"; 
+    listTypes[2] = "Música"; 
+    listTypes[3] = "Tecnologia"; 
+    
 
     const [filter, setFilter] = React.useState("");
     const [playlists, setPlaylists] = React.useState({});
